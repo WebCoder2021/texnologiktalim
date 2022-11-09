@@ -1,11 +1,12 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from .validators import validate_file_extension
 # Create your models here.
 class Books(models.Model):
-    image = models.ImageField(upload_to='themes')
-    title = models.CharField(max_length=500)
-    author = models.CharField(max_length=200)
-    file = models.FileField(upload_to='books')
+    image = models.ImageField(upload_to='themes',verbose_name="Rasm")
+    title = models.CharField(max_length=500,verbose_name="Kitob nomi")
+    author = models.CharField(max_length=200,verbose_name='Kitob muallifi')
+    file = models.FileField(upload_to='books',verbose_name='Kitob fayli',validators=[validate_file_extension])
 
     class Meta:
         verbose_name = "Kitob"
@@ -14,9 +15,9 @@ class Books(models.Model):
         return self.title
 
 class InternetResources(models.Model):
-    image = models.ImageField(upload_to='themes')
-    title = models.CharField(max_length=500)
-    url = models.URLField()
+    image = models.ImageField(upload_to='themes',verbose_name="Resurs rasmi")
+    title = models.CharField(max_length=500,verbose_name='Sarlavha')
+    url = models.URLField(verbose_name='Resurs url manzili')
 
     class Meta:
         verbose_name = "Internet resurs"
@@ -26,10 +27,10 @@ class InternetResources(models.Model):
 
 
 class VideoLessons(models.Model):
-    image = models.ImageField(upload_to='themes')
-    title = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='video_lessons',verbose_name='Video dars rasmi')
+    title = models.CharField(max_length=500,verbose_name='Sarlavha')
     url = models.URLField(null=True,blank=True)
-    iframe = models.TextField(null=True,blank=True)
+    iframe = models.TextField(null=True,blank=True,verbose_name="YouTube ifareme")
 
     class Meta:
         verbose_name = "Video dars"
@@ -41,14 +42,14 @@ class VideoLessons(models.Model):
 
 
 class Questionnaire(models.Model):
-    publish = models.BooleanField(default=False)
-    title = models.CharField(max_length=500)
-    ans1 = models.CharField(max_length=200)
-    ans2 = models.CharField(max_length=200)
-    ans3 = models.CharField(max_length=200,null=True,blank=True)
-    ans4 = models.CharField(max_length=200,null=True,blank=True)
-    ans5 = models.CharField(max_length=200,null=True,blank=True)
-    ans6 = models.CharField(max_length=200,null=True,blank=True)
+    publish = models.BooleanField(default=False,verbose_name="So'rovnoma holati")
+    title = models.CharField(max_length=500,verbose_name="So'rovnoma savoli")
+    ans1 = models.CharField(max_length=200,verbose_name="Variant")
+    ans2 = models.CharField(max_length=200,verbose_name="Variant")
+    ans3 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
+    ans4 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
+    ans5 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
+    ans6 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
     res1 = models.PositiveSmallIntegerField(null=True,blank=True)
     res2 = models.PositiveSmallIntegerField(null=True,blank=True)
     res3 = models.PositiveSmallIntegerField(null=True,blank=True)

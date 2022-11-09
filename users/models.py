@@ -33,8 +33,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     picture = models.ImageField(upload_to='user/',null=True,verbose_name='Rasm',blank=True,default='user.jpg')
     email = models.EmailField(max_length=200,null=True,blank=True,verbose_name='Email')
     location = models.CharField(max_length=250,null=True,blank=True,verbose_name='Manzil')
-    company_name = models.CharField(max_length=250,null=True,blank=True,verbose_name='Tashkilot(muasassa nomi)')
-    position = models.CharField(max_length=250,null=True,blank=True,verbose_name='Lavozim')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_staff = models.BooleanField(default=False)

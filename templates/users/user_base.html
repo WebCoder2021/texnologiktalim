@@ -17,45 +17,9 @@
     <div style="background-color: #fff;" class="sidebar open">
         <a href="{% url 'home' %}" class="logo-details">
           <img src="{% static 'logo.png' %}" width="50" alt="">
-            <div class="logo_name">BuxDu Karyera</div>
+            <div class="logo_name">Texnologik ta'lim</div>
         </a>
         <ul class="nav-list">
-          <li>
-           <a href="{% url 'user_vacan' %}"  class="active">
-             <i class='fa-solid fa-briefcase'></i>
-             <span class="links_name">Vakansiyalarim</span>
-           </a>
-           <span class="tooltip">Vakansiyalarim</span>
-         </li>
-         <li>
-           <a href="{% url 'user_resume_add' %}">
-            <i class="fa-regular fa-file"></i>
-             <span class="links_name">Rezyumelarim</span>
-           </a>
-           <span class="tooltip">Rezyumelarim</span>
-         </li>
-         <li>
-           <a href="{% url 'user_vacansy_add' %}">
-            <i class="fa-regular fa-plus"></i>
-             <span class="links_name">Vakansiya joylash</span>
-           </a>
-           <span class="tooltip">Vakansiya joylash</span>
-         </li>
-         <li>
-          <a href="{% url 'saved_vacan' %}">
-            <i class="fa-solid fa-bookmark"></i> 
-            <span class="links_name">Saqlanganlar</span>
-          </a>
-          <span class="tooltip">Saqlanganlar</span>
-        </li>
-         <li>
-           <a href="{% url 'support' %}">
-            <i class="fa-regular fa-comments"></i>
-             <span class="links_name">Qo'llab-Quvvatlash</span>
-           </a>
-           <span class="tooltip">Qo'llab-Quvvatlash</span>
-         </li>
-
         </ul>
       </div>
       <section  class="home-section">

@@ -17,6 +17,7 @@
     <title>Texnologik ta'lim</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/92d9a36319.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -51,29 +52,26 @@
         <div class="container main-menu">
             <div class="row align-items-center justify-content-between d-flex">
               <div id="logo">
-                <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+                <a href="{% url 'home' %}"><img src="{% static 'logo2.png' %}" width="40" alt="" title="" /></a>
               </div>
               <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
+                  
+                  <li><a href="about.html">Biz haqimizda</a></li>
                   <li><a href="{% url 'events' %}">Yangiliklar</a></li>
                   <li><a href="{% url 'blog' %}">Maqolalar</a></li>
-                  
-                  <li class="menu-has-children"><a href="">Pages</a>
+                  <li class="menu-has-children"><a href="">Modullar</a>
                     <ul>
-                          <li><a href="course-details.html">Course Details</a></li>		
-                          <li><a href="event-details.html">Event Details</a></li>		
-                        <li><a href="elements.html">Elements</a></li>
-                          <li class="menu-has-children"><a href="">Level 2 </a>
-                            <ul>
-                              <li><a href="#">Item One</a></li>
-                              <li><a href="#">Item Two</a></li>
-                            </ul>
-                          </li>					                		
+                          <li><a href="course-details.html">Modul1</a></li>		
+                          <li><a href="event-details.html">Modul2</a></li>					                		
                     </ul>
-                  </li>					          					          		          
-                  <li><a href="contact.html">Contact</a></li>
+                  </li>	
+                  <li><a href="{% url 'library' %}">Kutubxona</a></li>
+                  <li><a href="{% url 'resurs' %}">Internet resurslar</a></li>
+                  <li><a href="{% url 'video_lesson' %}">Video darslar</a></li>
+                  
+                  				          					          		          
+                  <li><a href="contact.html">Bog'lanish</a></li>
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_staff %}
                     <li><a href="{% url 'admin:index' %}"><i class="fa-regular fa-user"></i> {{request.user.first_name}}</a>

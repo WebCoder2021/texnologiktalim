@@ -22,11 +22,12 @@ def log_in(request):
                 middle_name = post.get('middle_name', False)
                 email = post.get('email', False)
                 location = post.get('location', False)
-                company_name = post.get('company_name', False)
-                position = post.get('position', False)
-                if first_name and last_name and middle_name and location and company_name and position:
+                direction = post.get('direction', False)
+                faculty = post.get('faculty', False)
+                group = post.get('group', False)
+                if first_name and last_name and middle_name and location and faculty and direction and group:
                     user = CustomUser.objects.create(
-                        phone=phone, first_name=first_name, last_name=last_name, middle_name=middle_name,company_name=company_name,position=position,location=location)
+                        phone=phone, first_name=first_name, last_name=last_name, middle_name=middle_name,faculty=faculty,direction=direction,location=location,group=group)
                     if email:
                         user.email = email
                     user.set_password(password)
@@ -80,6 +81,9 @@ def settings(request):
         middle_name = post.get('middle_name',False)
         email = post.get('email',False)
         location = post.get('location',False)
+        faculty = post.get('faculty',False)
+        direction = post.get('direction',False)
+        group = post.get('group',False)
         pass1 = post.get('pass1',False)
         pass2 = post.get('pass2',False)
         pass3 = post.get('pass3',False)
@@ -94,6 +98,12 @@ def settings(request):
             user.email = email
         if location and user.location != location:
             user.location = location
+        if faculty and user.faculty != faculty:
+            user.faculty = faculty
+        if direction and user.direction != direction:
+            user.direction = direction
+        if group and user.group != group:
+            user.group = group
 
         if pass1 and pass2 and pass3:
             if user.check_password(pass1):

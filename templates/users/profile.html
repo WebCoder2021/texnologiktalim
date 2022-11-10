@@ -29,8 +29,8 @@
         </div>
     </div>
     <div class="info">
-        <p>Korxona nomi: <span>{{ request.user.company_name }}</span></p>
-        <p>Lavozim: <span>{{ request.user.position }}</span></p>
+        <p>Fakultet: <span>{{ request.user.faculty }}</span></p>
+        <p>Yo'nalish/Guruh: <span>{{ request.user.direction }} {{ request.user.group }}</span></p>
     </div>
     <div class="info">
         <p>Email: <span>{{ request.user.email }}</span></p>

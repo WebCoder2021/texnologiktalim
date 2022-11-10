@@ -50,12 +50,12 @@ class Questionnaire(models.Model):
     ans4 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
     ans5 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
     ans6 = models.CharField(max_length=200,null=True,blank=True,verbose_name="Variant")
-    res1 = models.PositiveSmallIntegerField(null=True,blank=True)
-    res2 = models.PositiveSmallIntegerField(null=True,blank=True)
-    res3 = models.PositiveSmallIntegerField(null=True,blank=True)
-    res4 = models.PositiveSmallIntegerField(null=True,blank=True)
-    res5 = models.PositiveSmallIntegerField(null=True,blank=True)
-    res6 = models.PositiveSmallIntegerField(null=True,blank=True)
+    res1 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
+    res2 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
+    res3 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
+    res4 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
+    res5 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
+    res6 = models.PositiveSmallIntegerField(null=True,blank=True,default=0)
 
     class Meta:
         verbose_name = "So'rovnoma"

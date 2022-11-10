@@ -33,6 +33,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     picture = models.ImageField(upload_to='user/',null=True,verbose_name='Rasm',blank=True,default='user.jpg')
     email = models.EmailField(max_length=200,null=True,blank=True,verbose_name='Email')
     location = models.CharField(max_length=250,null=True,blank=True,verbose_name='Manzil')
+    faculty = models.CharField(max_length=250,null=True,blank=True,verbose_name='Fakultet')
+    direction = models.CharField(max_length=250,null=True,blank=True,verbose_name='Yo\'nalish')
+    group = models.CharField(max_length=250,null=True,blank=True,verbose_name='Guruh')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_staff = models.BooleanField(default=False)
@@ -42,6 +45,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         ordering = ("created_at",)
+        verbose_name = "Foydalanuvchi"
+        verbose_name_plural = "Foydalanuvchilar"
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []

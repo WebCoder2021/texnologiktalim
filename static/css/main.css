@@ -2416,7 +2416,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-    background: url(../img/banner-bg.jpg) right;
+    background: url(../header.jpg) right;
     background-size: cover
 }
 
@@ -3351,7 +3351,7 @@ dl.toggle.time-line:before {
 }
 
 .video-right {
-    background: url(../img/video-bg.jpg) no-repeat center;
+    background: url(../header.jpg) no-repeat center;
     background-size: cover;
     height: 330px
 }

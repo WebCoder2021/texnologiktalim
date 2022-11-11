@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+
+from modul.models import Module
 from .models import *
 # Create your views here.
 def events (request):
@@ -11,11 +13,13 @@ def events (request):
         'category': category,
         'tags': tags,
     }
+    context['modules'] = Module.objects.all().order_by('order')
     return render(request,'news/events.html',context)
 def event_detail(request,slug):
     context ={}
     event = Event.objects.filter(slug=slug).first()
     context['event'] = event
+    context['modules'] = Module.objects.all().order_by('order')
     return render(request,'news/event-details.html',context)
 def blog (request):
     posts = Post.objects.all()
@@ -37,6 +41,7 @@ def blog (request):
         'popular_posts': popular_posts,
         'tags': tags,
     }
+    context['modules'] = Module.objects.all().order_by('order')
     return render(request,'news/blog-home.html',context)
 def blog_detail(request,slug):
     context = {}
@@ -56,4 +61,5 @@ def blog_detail(request,slug):
         'category': category,
         'tags': tags,
     }
+    context['modules'] = Module.objects.all().order_by('order')
     return render(request,'news/blog-single.html',context)

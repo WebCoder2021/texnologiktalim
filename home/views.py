@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from news.models import Event,Post
+from modul.models import Module
 from .models import Books, InternetResources, Questionnaire, VideoCategory, VideoLessons
 # Create your views here.
 def home (request):
@@ -10,8 +11,9 @@ def home (request):
     context = {
         'events':events,
         'posts': posts,
-        'questionnaire': questionnaire
+        'questionnaire': questionnaire,
     }
+    context['modules'] = Module.objects.all().order_by('order')
     if request.method == 'POST':
         q = request.POST.get('q',False)
         print(questionnaire.res1)
@@ -33,15 +35,27 @@ def home (request):
     return render(request,'index.html',context)
 
 
+def about(request):
+    context = {}
+    context['modules'] = Module.objects.all().order_by('order')
+    return render(request,'about.html',context)
+def contact(request):
+    context = {}
+    context['modules'] = Module.objects.all().order_by('order')
+    return render(request,'contact.html',context)
+
 def library(request):
     context = {}
+    context['modules'] = Module.objects.all().order_by('order')
     context['books'] = Books.objects.all()
     return render(request,'library.html',context)
 def resurs(request):
     context = {}
+    context['modules'] = Module.objects.all().order_by('order')
     context['resurs'] = InternetResources.objects.all()
     return render(request,'resurs.html',context)
 def video_lesson(request):
     context = {}
+    context['modules'] = Module.objects.all().order_by('order')
     context['videos_category'] = VideoCategory.objects.all()
     return render(request,'video_lesson.html',context)

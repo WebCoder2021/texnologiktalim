@@ -5,6 +5,7 @@ class Module(models.Model):
     image = models.ImageField(upload_to='modules',verbose_name='Rasm',null=True,blank=True)
     name = models.CharField(max_length=500)
     order = models.PositiveSmallIntegerField(default=1)
+    slug = models.SlugField(unique=True,null=True)
     def themes(self):
         themes = Theme.objects.filter(module__name=self.name).all()
         return themes
@@ -19,7 +20,8 @@ class Theme(models.Model):
     image = models.ImageField(upload_to='themes',verbose_name='Mavzu')
     title = models.CharField(max_length=500,verbose_name='Nomi')
     order = models.PositiveSmallIntegerField(default=0,verbose_name='Mavzu tartib raqami')
-    content = RichTextField(verbose_name="Mazmuni") 
+    content = RichTextField(verbose_name="Mazmuni")
+    slug = models.SlugField(unique=True,null=True) 
 
     def questions(self):
         q = Question.objects.filter(theme_title=self.title).all()

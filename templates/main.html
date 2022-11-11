@@ -36,15 +36,16 @@
                   <div class="row">
                       <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
                           <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="https://buxdupi.uz/" target="_blank"><i class="fa-solid fa-globe"></i></a></li>
+                            <li><a href="https://www.facebook.com/people/Buxoro-Pedagogika-Instituti/100073705396413/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCj8i9RW6DDLnh-UuLd1Otdw" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="https://t.me/buxdupi" target="_blank"><i class="fa-brands fa-telegram" ></i></a></li>
+                            <li><a href="http://elib.buxdupi.uz/" target="_blank"><i class="fa-solid fa-book-open-reader"></i></a></li>
                           </ul>			
                       </div>
                       <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-                          <a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">+953 012 3654 896</span></a>
-                          <a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>			
+                          <a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">0 (365) 226-10-97</span></a>
+                          <a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">buxdupi@buxdupi.uz</span></a>			
                       </div>
                   </div>			  					
               </div>
@@ -57,13 +58,13 @@
               <nav id="nav-menu-container">
                 <ul class="nav-menu">
                   
-                  <li><a href="about.html">Biz haqimizda</a></li>
+                  <li><a href="{% url 'about' %}">Biz haqimizda</a></li>
                   <li><a href="{% url 'events' %}">Yangiliklar</a></li>
                   <li><a href="{% url 'blog' %}">Maqolalar</a></li>
-                  <li class="menu-has-children"><a href="">Modullar</a>
-                    <ul>
-                          <li><a href="course-details.html">Modul1</a></li>		
-                          <li><a href="event-details.html">Modul2</a></li>					                		
+                  <li class="menu-has-children"><a href="#">Modullar</a>
+                    <ul>{% for md in modules %}
+                          <li><a href="{% url 'module' md.slug %}">{{md.name}}</a></li>		
+                          {% endfor %}					                		
                     </ul>
                   </li>	
                   <li><a href="{% url 'library' %}">Kutubxona</a></li>
@@ -71,7 +72,7 @@
                   <li><a href="{% url 'video_lesson' %}">Video darslar</a></li>
                   
                   				          					          		          
-                  <li><a href="contact.html">Bog'lanish</a></li>
+                  <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_staff %}
                     <li><a href="{% url 'admin:index' %}"><i class="fa-regular fa-user"></i> {{request.user.first_name}}</a>

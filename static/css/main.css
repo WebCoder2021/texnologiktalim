@@ -1264,9 +1264,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 14px;
     border: 3px solid #f7631b;
     background: #fff;
-    top: 4px;
+    top: 50%;
     left: 0;
-    border-radius: 50%
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 
 .ordered-list {

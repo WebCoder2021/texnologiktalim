@@ -17,6 +17,7 @@ class Books(models.Model):
 class InternetResources(models.Model):
     image = models.ImageField(upload_to='themes',verbose_name="Resurs rasmi")
     title = models.CharField(max_length=500,verbose_name='Sarlavha')
+    content = models.CharField(max_length=500,verbose_name='Qisqacha',null=True)
     url = models.URLField(verbose_name='Resurs url manzili')
 
     class Meta:
@@ -25,11 +26,15 @@ class InternetResources(models.Model):
     def __str__(self) -> str:
         return self.title
 
-
+class VideoCategory(models.Model):
+    name = models.CharField(max_length=200,unique=True)
+    def videos(self):
+        return VideoLessons.objects.filter(category__name=self.name)
+    def __str__(self):
+        return self.name
 class VideoLessons(models.Model):
-    image = models.ImageField(upload_to='video_lessons',verbose_name='Video dars rasmi')
+    category = models.ForeignKey(VideoCategory,on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=500,verbose_name='Sarlavha')
-    url = models.URLField(null=True,blank=True)
     iframe = models.TextField(null=True,blank=True,verbose_name="YouTube ifareme")
 
     class Meta:

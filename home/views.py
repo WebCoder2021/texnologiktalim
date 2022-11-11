@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from news.models import Event,Post
-from .models import Questionnaire
+from .models import Books, InternetResources, Questionnaire, VideoCategory, VideoLessons
 # Create your views here.
 def home (request):
     events = Event.objects.all().order_by('-created')[:6]
@@ -10,8 +10,7 @@ def home (request):
     context = {
         'events':events,
         'posts': posts,
-        'questionnaire': questionnaire,
-
+        'questionnaire': questionnaire
     }
     if request.method == 'POST':
         q = request.POST.get('q',False)
@@ -35,8 +34,14 @@ def home (request):
 
 
 def library(request):
-    return render(request,'library.html')
+    context = {}
+    context['books'] = Books.objects.all()
+    return render(request,'library.html',context)
 def resurs(request):
-    return render(request,'resurs.html')
+    context = {}
+    context['resurs'] = InternetResources.objects.all()
+    return render(request,'resurs.html',context)
 def video_lesson(request):
-    return render(request,'video_lesson.html')
+    context = {}
+    context['videos_category'] = VideoCategory.objects.all()
+    return render(request,'video_lesson.html',context)

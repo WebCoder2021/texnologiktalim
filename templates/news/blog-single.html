@@ -6,9 +6,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Blog Details Page				
+								Maqola haqida				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span><a href="blog-home.html">Blog </a> <span class="lnr lnr-arrow-right"></span> <a href="blog-single.html"> Blog Details Page</a></p>
+							<p class="text-white link-nav"><a href="{% url 'home' %}">Bosh sahifa </a>  <span class="lnr lnr-arrow-right"></span><a href="{% url 'blog' %}">Maqolalalar </a> <span class="lnr lnr-arrow-right"></span> <a href="blog-single.html"> Blog Details Page</a></p>
 						</div>	
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 								</div>
 							</div>
 							<div class="comments-area">
-								<h4>{{post.comments.count}} Comments</h4>
+								<h4>{{post.comments.count}} Izohlar</h4>
 								{% for cm in post.comments %}
 								<div class="comment-list">
                                     <div class="single-comment justify-content-between d-flex">
@@ -83,12 +83,12 @@
 							</div>
 							{% if request.user.is_authenticated %}
 							<div class="comment-form">
-								<h4>Leave a Comment</h4>
+								<h4>Izoh qoldirish</h4>
 								<form method="POST"> {% csrf_token %}
 									<div class="form-group">
 										<textarea class="form-control mb-10" rows="5" name="comment" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
 									</div>
-									<button type="submit" class="genric-btn primary radius">Post Comment</button>
+									<button type="submit" class="genric-btn primary radius">Jo'natish</button>
 								</form>
 							</div>
 							{% endif %}
@@ -96,7 +96,7 @@
 						<div class="col-lg-4 sidebar-widgets">
 							<div class="widget-wrap">
 								<div class="single-sidebar-widget popular-post-widget">
-									<h4 class="popular-title">Popular Posts</h4>
+									<h4 class="popular-title">Mashhur maqolalar</h4>
 									<div class="popular-post-list">
 										{% for pp in  popular_posts %}
 										<div class="single-post-list d-flex flex-row align-items-center">
@@ -115,7 +115,7 @@
 									</div>
 								</div>
 								<div class="single-sidebar-widget post-category-widget">
-									<h4 class="category-title">Post Catgories</h4>
+									<h4 class="category-title">Kategoriyalar</h4>
 									<ul class="cat-list">
 										{% for ct in category %}
 										<li>
@@ -127,7 +127,7 @@
 										{% endfor %}
 								</div>
 								<div class="single-sidebar-widget tag-cloud-widget">
-									<h4 class="tagcloud-title">Tag Clouds</h4>
+									<h4 class="tagcloud-title">HashTaglar</h4>
 									<ul>{% for tag in tags %}
 										<li><a href="#">{{tag.name}}</a></li>{% endfor %}
 									</ul>

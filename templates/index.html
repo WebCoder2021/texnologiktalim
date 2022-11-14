@@ -305,7 +305,7 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Akademiyamizdagi so'nggi yangiliklar</h1>
+								<h1 class="mb-10">So'nggi yangiliklar</h1>
 								<p>Ishoning, qo'lingizdan keladi va yo'lning yarmi allaqachon o'tib ketgan</p>
 							</div>
 						</div>
@@ -318,10 +318,10 @@
 									<img class="img-fluid" src="{{event.image.url}}" alt="">
 								</div>
 								<div class="detials col-12 col-md-6">
-									<p>{{event.created|date:'H:i d-m-Y'}}</p>
-									<a href="#"><h4>{{event.title}}</h4></a>
+									<p><i class="fa-solid fa-calendar-days"></i> {{event.created|date:'H:i d-m-Y'}}</p>
+									<a href="{% url 'event_detail' event.slug %}"><h4>{{event.title}}</h4></a>
 									<p>
-										{{event.sub_title}}
+										{{event.sub_title|truncatechars:100}}...
 									</p>
 								</div>
 							</div>
@@ -488,7 +488,7 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Bizning blogimizdagi so'nggi maqolalar</h1>
+								<h1 class="mb-10">So'nggi maqolalar</h1>
 								<p>Faqat hech narsa qilmagan odam xato qilmaydi! Xato qilishdan qo'rqmang - xatolarni takrorlashdan qo'rqing</p>
 							</div>
 						</div>
@@ -499,7 +499,7 @@
 							<div class="thumb">
 								<img class="img-fluid" src="{{post.image.url}}" alt="">
 							</div>
-							<p class="meta">{{post.created|date:'H:i d-m-Y'}}  | <a href="#">{{post.user.first_name}}</a></p>
+							<p class="meta"><i class="fa-solid fa-calendar"></i> {{post.created|date:'H:i d-m-Y'}}  | <i class="fa-solid fa-user"></i> <a href="#">{{post.user.first_name}}</a></p>
 							<a href="{% url 'blog_detail' post.slug %}">
 								<h5>{{post.title}}</h5>
 							</a>

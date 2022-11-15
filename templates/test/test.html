@@ -1,0 +1,31 @@
+{% extends 'main.html' %}{% load static %}{% load custom_tags %}{% block head %}
+{% endblock %}{% block content %}
+<section class="banner-area relative blog-home-banner" id="home">	
+	<div class="overlay overlay-bg"></div>
+	<div class="container">				
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content blog-header-content col-lg-12">
+				<h1 class="text-white">
+					Texnologik ta'lim KUTUBXONASI		
+				</h1>	
+				<p class="text-white">
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+<form action="" method="POST"> {% csrf_token %}
+	{% for test in tests %}
+	<h2>{{test.content|safe}}</h2>
+	{% for a in test.answers.all|shuffle %}
+		<label><input type="radio" class="primary-radio" name="{{test.id}}" value="{{a.id}}" {% if a.is_true %} checked {% endif %} />{{a.content}}</label>
+	{% endfor %} 
+	{% endfor %}
+	<button type="submit" class="primary-btn text-uppercase">Jo'natish</button>
+</form>
+</section>
+
+			{% endblock %}
+			{% block script %}
+{% endblock %}

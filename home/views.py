@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from news.models import Event,Post
 from modul.models import Module
-from .models import Books, InternetResources, Questionnaire, VideoCategory, VideoLessons
+from .models import Books, IncomingMessages, InternetResources, Questionnaire, VideoCategory, VideoLessons
 # Create your views here.
 def home (request):
     events = Event.objects.all().order_by('-created')[:6]
@@ -42,6 +42,20 @@ def about(request):
 def contact(request):
     context = {}
     context['modules'] = Module.objects.all().order_by('order')
+    if request.method == 'POST':
+        post = request.POST
+        fullname = post.get('fullname',False)
+        faculty = post.get('faculty',False)
+        direction = post.get('direction',False)
+        phone = post.get('phone',False)
+        content = post.get('content',False)
+        if fullname and faculty and direction and phone and content:
+            message = IncomingMessages.objects.create(fullname=fullname, faculty=faculty, direction=direction, phone=phone, content=content)
+            message.save()
+            context['msg'] = "Xabaringiz yuborildi"
+
+        else:
+            context['err']= "Ma'lumotlar to'liq kiritilmadi!"
     return render(request,'contact.html',context)
 
 def library(request):

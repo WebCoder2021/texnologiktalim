@@ -16,6 +16,9 @@
 </section>
 <section>
 <form action="" method="POST"> {% csrf_token %}
+	<hr>
+	{{result.is_trues}}
+	<hr>
 	{% for test in tests %}
 	<h2>{{test.content|safe}}</h2>
 	{% for a in test.answers.all|shuffle %}

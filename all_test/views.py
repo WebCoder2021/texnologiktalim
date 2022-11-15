@@ -4,10 +4,16 @@ from .models import *
 def test(request):
     context = {}
     context['tests'] = TestQuestion.objects.all()
-    print('test')
     if request.method == "POST":
-        print('post')
+        result = UserTestResult.objects.create(user=request.user)
         for test in TestQuestion.objects.all():
-            print(request.POST.get(str(test.id),False)) 
+            print(test.id,request.POST.get(str(test.id),False))
+            ts = UserTest.objects.create(question_id=int(test.id),answer_id=int(request.POST.get(str(test.id),False))) 
+            ts.save()
+            
+            result.tests.add(ts)
+            result.save()
+            context['result'] = result
+            
 
     return render(request,'test/test.html',context)

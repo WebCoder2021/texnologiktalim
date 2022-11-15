@@ -1,6 +1,7 @@
 import random
 from django.db import models
 from ckeditor.fields import RichTextField
+from users.models import CustomUser
 # Create your models here.
 class TestAnswer(models.Model):
     content = models.CharField(max_length=500,verbose_name="Variant")
@@ -22,3 +23,28 @@ class TestQuestion(models.Model):
     
     def __str__(self) -> str:
         return self.content
+
+class UserTest(models.Model):
+    question = models.ForeignKey(TestQuestion,on_delete=models.CASCADE)
+    answer = models.ForeignKey(TestAnswer,on_delete=models.CASCADE)
+    is_true  = models.BooleanField(default=False)
+    def save(self, *args, **kwargs):
+        if TestAnswer.objects.filter(id=self.answer_id).first().is_true:
+            self.is_true = True
+        super(UserTest, self).save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.question.content
+
+class UserTestResult(models.Model):
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    tests = models.ManyToManyField(UserTest)
+
+    def is_trues(self):
+        return self.tests.filter(is_true=True).count()
+
+
+    def __str__(self) -> str:
+        return self.user.get_full_name()
+

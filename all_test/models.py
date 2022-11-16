@@ -20,7 +20,6 @@ class TestQuestion(models.Model):
     class Meta:
         verbose_name = "Test"
         verbose_name_plural = "Testlar"
-    
     def __str__(self) -> str:
         return self.content
 
@@ -43,8 +42,15 @@ class UserTestResult(models.Model):
 
     def is_trues(self):
         return self.tests.filter(is_true=True).count()
+    
+    def result(self):
+        r = (self.tests.filter(is_true=True).count()*100) / self.tests.count()
+        return '{:.2f}'.format(r)
 
 
     def __str__(self) -> str:
         return self.user.get_full_name()
+
+    class Meta:
+        ordering = ['-date']
 

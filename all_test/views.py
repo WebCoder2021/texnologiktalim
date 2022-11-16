@@ -4,6 +4,11 @@ from .models import *
 def test(request):
     context = {}
     context['tests'] = TestQuestion.objects.all()
+    context['old_results'] = UserTestResult.objects.filter(user=request.user)
+    if request.method == 'GET':
+        start = request.GET.get('start',False)
+        if start:
+            context['start'] = True
     if request.method == "POST":
         result = UserTestResult.objects.create(user=request.user)
         for test in TestQuestion.objects.all():

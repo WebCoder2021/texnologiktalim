@@ -11,36 +11,43 @@ def log_in(request):
         post = request.POST
         phone = post.get('phone', False)
         password = post.get('password', False)
-        user = post.get('user', False)
+        user = CustomUser.objects.filter(phone=phone).first()
+        user.save()
+        print(user)
         if user:
-            user = CustomUser.objects.filter(id=user).first()
-        else:
-            password2 = post.get('password2', False)
-            if password == password2:
-                first_name = post.get('first_name', False)
-                last_name = post.get('last_name', False)
-                middle_name = post.get('middle_name', False)
-                email = post.get('email', False)
-                location = post.get('location', False)
-                direction = post.get('direction', False)
-                faculty = post.get('faculty', False)
-                group = post.get('group', False)
-                if first_name and last_name and middle_name and location and faculty and direction and group:
-                    user = CustomUser.objects.create(
-                        phone=phone, first_name=first_name, last_name=last_name, middle_name=middle_name,faculty=faculty,direction=direction,location=location,group=group)
-                    if email:
-                        user.email = email
-                    user.set_password(password)
-                    user.save()
-                else: context['error'] = "Ma'lumotlar to'liq kiritilmadi"
-            else:
-                context['error'] = "Qayta kiritilgan parol xato"
-                return render(request, 'users/login.html', context)
-        sign_in = authenticate(request, phone=phone, password=password)
-        if sign_in is not None:
-            login(request,user)
-            return redirect('home')
-        else: context['error'] = 'Login yoki parol xato'
+            sign_in = authenticate(request, phone=phone, password=password)
+            if sign_in is not None:
+               login(request,user)
+               return redirect('home')
+            else: context['error'] = 'Login yoki parol xato'
+        else: context['error'] = 'Tizimda mavjud emas'
+
+        # user = post.get('user', False)
+        # if user:
+        #     user = CustomUser.objects.filter(id=user).first()
+        # else:
+        #     password2 = post.get('password2', False)
+        #     if password == password2:
+        #         first_name = post.get('first_name', False)
+        #         last_name = post.get('last_name', False)
+        #         middle_name = post.get('middle_name', False)
+        #         email = post.get('email', False)
+        #         location = post.get('location', False)
+        #         direction = post.get('direction', False)
+        #         faculty = post.get('faculty', False)
+        #         group = post.get('group', False)
+        #         if first_name and last_name and middle_name and location and faculty and direction and group:
+        #             user = CustomUser.objects.create(
+        #                 phone=phone, first_name=first_name, last_name=last_name, middle_name=middle_name,faculty=faculty,direction=direction,location=location,group=group)
+        #             if email:
+        #                 user.email = email
+        #             user.set_password(password)
+        #             user.save()
+        #         else: context['error'] = "Ma'lumotlar to'liq kiritilmadi"
+        #     else:
+        #         context['error'] = "Qayta kiritilgan parol xato"
+        #         return render(request, 'users/login.html', context)
+        
         # else: context['error'] = 'Iltimos robot emasligingizni isbotlang'
     else: pass
     return render(request, 'users/login.html',context)

@@ -21,13 +21,13 @@ background-size: cover;">
 </section>
 <form style="padding: 60px;" action="" method="POST">{% csrf_token %}
     <div style="border-radius:3px;" class="login">
-        <h1>Kirish</h1>
+        <h1><i class="fa-solid fa-right-to-bracket"></i> Kirish</h1>
         <p style="color: red;">{{error}}</p>
         <br>
         <div class="inputs phone">
-            <span>+998</span>
+            <!-- <span>+998</span> -->
             <input type="text" name="phone" id="phone" required>
-            <label for="">Telefon raqam </label>
+            <label for=""><i class="fa-solid fa-user"></i> Login </label>
         </div>
        {% comment %} <div class="register" style="display: none;">
             <div class="inputs">
@@ -62,7 +62,7 @@ background-size: cover;">
         <input type="hidden" name="user">
         <div class="inputs">
             <input type="password" class="password" name="password" id="" required>
-            <label for=""> Parol </label>
+            <label for=""><i class="fa-solid fa-lock"></i> Parol </label>
             <img class="passImg" src="{% static 'eye.svg' %}" alt="" onclick="passwordShow('.password','.passImg')">
         </div>{% comment %}
         <div class="registerPass" style="display: none;">

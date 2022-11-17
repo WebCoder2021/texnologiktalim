@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from home.bot_send import bot_send, get_mess
 from news.models import Event,Post
 from modul.models import Module
 from .models import Books, IncomingMessages, InternetResources, Questionnaire, VideoCategory, VideoLessons
@@ -53,6 +54,8 @@ def contact(request):
             message = IncomingMessages.objects.create(fullname=fullname, faculty=faculty, direction=direction, phone=phone, content=content)
             message.save()
             context['msg'] = "Xabaringiz yuborildi"
+            print(get_mess(message.id))
+            print(bot_send(text=get_mess(message.id)))
 
         else:
             context['err']= "Ma'lumotlar to'liq kiritilmadi!"

@@ -95,7 +95,7 @@
 }
 .logoutContainer {
   padding: 1.5vw 3vw;
-  margin-top: 5vw;
+  margin: 5vw;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .logoutContainer h1 {
@@ -104,6 +104,9 @@
 }
 .logoutContainer h2 {
   margin: 30px 0;
+}
+.logoutContainer a {
+  margin: 20px;
 }
 
 .buttons {

@@ -5,9 +5,22 @@
 <link rel="stylesheet" href="{% static 'styles/login.css' %}">
 {% endblock %}
 {% block content %}
+<section class="banner-area relative about-banner" id="home" style="background: url('../../media/back/login.jpg');">	
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Tizimga kirish
+                </h1>
+                <p class="text-white link-nav"><a href="{% url 'home' %}">Bosh sahifa </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'login' %}"> Tizimga kirish</a></p>
+            </div>
+        </div>
+    </div>
+</section>
 <form style="padding: 60px;" action="" method="POST">{% csrf_token %}
     <div style="border-radius:3px;" class="login">
-        <h1>Kirish (Ro'yxatdan o'tish)</h1>
+        <h1>Kirish</h1>
         <p style="color: red;">{{error}}</p>
         <br>
         <div class="inputs phone">
@@ -15,7 +28,7 @@
             <input type="text" name="phone" id="phone" required>
             <label for="">Telefon raqam </label>
         </div>
-        <div class="register" style="display: none;">
+       {% comment %} <div class="register" style="display: none;">
             <div class="inputs">
                 <input type="text" name="first_name" id="">
                 <label for="">Ism </label>
@@ -44,13 +57,13 @@
                 <input type="text" name="group" id="">
                 <label for="">Guruh </label>
             </div>
-        </div>
+        </div> {% endcomment %}
         <input type="hidden" name="user">
         <div class="inputs">
             <input type="password" class="password" name="password" id="" required>
             <label for=""> Parol </label>
             <img class="passImg" src="{% static 'eye.svg' %}" alt="" onclick="passwordShow('.password','.passImg')">
-        </div>
+        </div>{% comment %}
         <div class="registerPass" style="display: none;">
             <div class="inputs">
                 <input type="password" class="password2" name="password2" id="">
@@ -58,7 +71,7 @@
                 <img class="passImg2" src="{% static 'eye.svg' %}" alt=""
                     onclick="passwordShow('.password2','.passImg2')">
             </div>
-        </div>
+        </div> {% endcomment %}
         <div class="sub">
             <button type="submit" class="genric-btn info radius">Kirish</button>
         </div>

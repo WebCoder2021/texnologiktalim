@@ -110,81 +110,54 @@
         <footer class="footer-area section-gap">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="col-lg-3 col-md-9 col-sm-9">
                         <div class="single-footer-widget">
-                            <h4>Top Products</h4>
+                            <div id="logo">
+                                <a href="{% url 'home' %}"  style="    color: #fff;
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column; align-items: center;
+                                "><img src="{% static 'logo2.png' %}" width="40" alt="" title="" /> <br> Texnologik ta'lim</a>
+                              </div>								
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-9 col-sm-9">
+                        <div class="single-footer-widget">
+                            <h4>Bo'limlar</h4>
                             <ul>
-                                <li><a href="#">Managed Website</a></li>
-                                <li><a href="#">Manage Reputation</a></li>
-                                <li><a href="#">Power Tools</a></li>
-                                <li><a href="#">Marketing Service</a></li>
+                                <li><a href="{% url 'about' %}">Biz haqimizda</a></li>
+                                <li><a href="{% url 'events' %}">Yangiliklar</a></li>
+                                <li><a href="{% url 'blog' %}">Maqolalar</a></li>
+                                <li><a href="{% url 'modules' %}">Modullar</a>
+                                <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
                             </ul>								
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="col-lg-3 col-md-9 col-sm-9">
                         <div class="single-footer-widget">
-                            <h4>Quick links</h4>
+                            <h4>Resurslar</h4>
                             <ul>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Brand Assets</a></li>
-                                <li><a href="#">Investor Relations</a></li>
-                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="{% url 'library' %}">Kutubxona</a></li>
+                                <li><a href="{% url 'resurs' %}">Internet resurslar</a></li>
+                                <li><a href="{% url 'video_lesson' %}">Video darslar</a></li>
+                                <li><a href="{% url 'test' %}">Test ishlash</a>
+
                             </ul>								
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="col-lg-3 col-md-9 col-sm-9">
                         <div class="single-footer-widget">
-                            <h4>Features</h4>
+                            <h4>Ijtimoiy tarmoqlar</h4>
                             <ul>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Brand Assets</a></li>
-                                <li><a href="#">Investor Relations</a></li>
-                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="https://buxdupi.uz/" target="_blank"><i class="fa-solid fa-globe"></i> Web-sayt</a></li>
+                            <li><a href="https://www.facebook.com/people/Buxoro-Pedagogika-Instituti/100073705396413/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCj8i9RW6DDLnh-UuLd1Otdw" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                            <li><a href="https://t.me/buxdupi" target="_blank"><i class="fa-brands fa-telegram" ></i> Telegram</a></li>
+                            <li><a href="http://elib.buxdupi.uz/" target="_blank"><i class="fa-solid fa-book-open-reader"></i> E-Kutubxona</a></li>
                             </ul>								
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Resources</h4>
-                            <ul>
-                                <li><a href="#">Guides</a></li>
-                                <li><a href="#">Research</a></li>
-                                <li><a href="#">Experts</a></li>
-                                <li><a href="#">Agencies</a></li>
-                            </ul>								
-                        </div>
-                    </div>																		
-                    <div class="col-lg-4  col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h4>Newsletter</h4>
-                            <p>Stay update with our latest</p>
-                            <div class="" id="mc_embed_signup">
-                                 <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
-                                  <div class="input-group">
-                                    <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
-                                    <div class="input-group-btn">
-                                      <button class="btn btn-default" type="submit">
-                                        <span class="lnr lnr-arrow-right"></span>
-                                      </button>    
-                                    </div>
-                                        <div class="info"></div>  
-                                  </div>
-                                </form> 
-                            </div>
-                        </div>
-                    </div>											
-                </div>
-                <div class="footer-bottom row align-items-center justify-content-between">
-                    <p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    <div class="col-lg-6 col-sm-12 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
-                </div>						
+                    </div>								
+                </div>		
             </div>
         </footer>	
         <!-- End footer Area -->	

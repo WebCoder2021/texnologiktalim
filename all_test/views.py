@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from home.bot_send import bot_send, get_test_result
 from .models import *
 # Create your views here.
 def test(request):
@@ -19,6 +21,8 @@ def test(request):
                     result.tests.add(ts)
                     result.save()
                     context['result'] = result
+
+            bot_send(get_test_result(result.id))
 
 
 

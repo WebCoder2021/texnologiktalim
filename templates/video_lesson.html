@@ -21,9 +21,9 @@ background-size: cover;">
 <section class="container video-lessons">
 	{% for vc in videos_category %}
 	<h2>{{vc.name}}</h2>
-	<div class="videos">
+	<div class="videos row">
 		{% for video in vc.videos.all %}
-		<div class="video">
+		<div class="video col-md-4">
 			<div class="iframe">{{video.iframe|safe}}</div>
 			<p class="title">{{video.title}}</p>
 		</div>

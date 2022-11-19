@@ -73,7 +73,12 @@ background-size: cover;">
 		<p><span><b>Natija:</b> {{result.result}}%</span></p>
 			{% for test in result.tests.all %}
 			<div style="display: flex;"><p style="font-size: 16px; font-weight:600; margin-right:7px">{{forloop.counter}}  </p>  {{test.question.content|safe}}</div>
-			<p>{% if test.is_true %}<i class="fa-solid fa-check" style="color: green;"></i>{% else %}<i class="fa-solid fa-xmark" style="color: red;"></i> {% endif %}{{test.answer}}</p>
+			{% if test.is_true %}<p><i class="fa-solid fa-check" style="color: green;"></i> {{test.answer}}</p>
+
+			{% else %}
+           <p><i class="fa-solid fa-xmark" style="color: red;"></i> {{test.answer}}</p> 
+            <p><b> To'g'ri javob:</b>  <i class="fa-solid fa-check" style="color: gray;"></i> {{test.question.is_true}}  </p>
+            {% endif %}
 			<hr>
 			{% endfor %}
 		</div>

@@ -7,6 +7,7 @@ class Books(models.Model):
     title = models.CharField(max_length=500,verbose_name="Kitob nomi")
     author = models.CharField(max_length=200,verbose_name='Kitob muallifi')
     file = models.FileField(upload_to='books',verbose_name='Kitob fayli',validators=[validate_file_extension])
+    url = models.URLField(verbose_name='Kitob url manzili',blank=True,null=True)
 
     class Meta:
         verbose_name = "Kitob"

@@ -31,10 +31,10 @@
 										{% endfor %}
 									</ul>
 									<div class="user-details row">
-										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{post.user.first_name}}</a> <span class="lnr lnr-user"></span></p>
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{post.user.get_full_name}}</a> <span class="lnr lnr-user"></span></p>
 										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.created|date:"d-m-Y H:i"}}</a> <span class="lnr lnr-calendar-full"></span></p>
 										<p class="view col-lg-12 col-md-12 col-6"><a href="#">{{post.category}}</a> <span class="lnr lnr-book"></span></p>
-										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{{post.comments.count}} Comments</a> <span class="lnr lnr-bubble"></span></p>						
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{{post.comments.count}} Izohlar</a> <span class="lnr lnr-bubble"></span></p>						
 									</div>
 								</div>
 								<div class="col-lg-9 col-md-9 ">
@@ -45,7 +45,9 @@
 									<p class="excert">
 										{{post.sub_title}}
 									</p>
-									<a href="{% url 'blog_detail' post.slug %}" class="primary-btn">Ba'tafsil</a>
+									<a href="{% url 'blog_detail' post.slug %}"  class="genric-btn primary radius"><i class="fa-solid fa-book-open"></i> Ba'tafsil</a>
+									{% if post.url %}<a href="{{post.url}}" target="_blank" class="genric-btn success radius"><i class="fa-solid fa-book-open-reader"></i> O'qish</a>{% endif %}
+									
 								</div>
 							</div>
 							{% endfor %}

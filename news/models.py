@@ -58,13 +58,14 @@ class Post(models.Model):
     title = models.CharField(max_length=250,verbose_name='Sarlavha')
     sub_title = models.CharField(max_length=500,verbose_name='Tag sarlavha')
     image = models.ImageField(upload_to='events',verbose_name='Rasm')
-    content = RichTextField(verbose_name='Maqola xabari')
+    content = RichTextField(verbose_name='Maqola xabari',null=True,blank=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE,verbose_name='Kim qo\'shganligi')
     category = models.ForeignKey(PostCategory, on_delete=models.CASCADE,verbose_name='Kategoriya')
     tags = models.ManyToManyField(PostTag,verbose_name='Teglar')
     created = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True,verbose_name='Url manzil')
+    url = models.URLField(verbose_name='Kitob url manzili',blank=True,null=True)
     class Meta:
         verbose_name_plural = 'Maqolalar'
         verbose_name = 'Maqola'

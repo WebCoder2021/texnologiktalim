@@ -76,3 +76,8 @@ def video_lesson(request):
     context['modules'] = Module.objects.all().order_by('order')
     context['videos_category'] = VideoCategory.objects.all()
     return render(request,'video_lesson.html',context)
+
+def sorovnoma(request):
+    context = {}
+    context["sorovnoma"] = Questionnaire.objects.all().order_by('publish')
+    return render(request,'users/sorovnoma.html',context)

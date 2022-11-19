@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from all_test.models import UserTestResult
 from users.models import CustomUser
 
 # Create your views here.
@@ -123,3 +124,14 @@ def settings(request):
         login(request,user)
         context['msg'] = "Ma'lumotlar o'zgartirildi"
     return render(request, 'users/settings.html',context)
+
+
+def test_result(request):
+    context = {}
+    context['old_results'] = UserTestResult.objects.filter(user=request.user).all()
+    return render(request, 'users/user_test.html',context)
+
+def user_test_info(request,id):
+    context = {}
+    context['result'] = UserTestResult.objects.filter(id=id).first()
+    return render(request, 'users/user_test_info.html',context)

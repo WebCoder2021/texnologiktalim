@@ -1,0 +1,23 @@
+{% extends 'users/user_base.html' %}{% load i18n %}{% load static %}
+{% block head %}
+<title>Test natijalari</title>
+
+
+{% endblock %}
+{% block content %}
+<h1>Test natijalari</h1>
+<div class="card-body">
+    <h5>Oldingi urinishlar ({{old_results.count}})</h5>
+    <br>
+    {% for r in old_results %}
+    <p> <span style="font-weight: 600;"> Sana va vaqt: <a href="{% url 'user_test_info' r.id %}">{{r.date|date:"d-m-Y H:i"}}</a> </span> </p>
+    <p><span style="font-weight: 600;">Umumiy savollar:</span> {{r.tests.count}}  <span style="font-weight: 500;">To'g'ri javoblar: {{r.is_trues}}</span></p>
+    <p><span><b>Natija:</b> {{r.result}}%</span></p>
+    <hr>
+    {% endfor %}
+
+</div>
+{% endblock %}
+{% block script %} 
+
+{% endblock %}

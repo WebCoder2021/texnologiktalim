@@ -5,7 +5,6 @@ def test(request):
     context = {}
     if request.user.is_authenticated:
         context['tests'] = TestQuestion.objects.all().order_by('?')[:5]
-        tests = context['tests']
         context['old_results'] = UserTestResult.objects.filter(user=request.user)
         if request.method == 'GET':
             start = request.GET.get('start',False)

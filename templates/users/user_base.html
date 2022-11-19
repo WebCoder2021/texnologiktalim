@@ -20,6 +20,14 @@
             <div class="logo_name">Texnologik ta'lim</div>
         </a>
         <ul class="nav-list">
+          <li><a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i>Profil</a></li>
+          <li><a href="{% url 'settings' %}"><i  class="fa-solid fa-gear"></i>Sozlamalar</a></li>
+          <li><a href="{% url 'test_result' %}"><i class="fa-solid fa-list-check"></i>  Test natijalari</a></li>
+          {% if request.user.is_superuser %}
+          <li><a href="{% url 'sorovnoma' %}"><i class="fa-regular fa-calendar-check"></i>  </i> So'rovnoma</a></li>
+          {% endif %}
+          <li><a href="{% url 'test' %}"><i class="fa-solid fa-bars-progress"></i>  Test ishlash</a></li>
+
         </ul>
       </div>
       <section  class="home-section">

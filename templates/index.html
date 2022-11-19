@@ -67,7 +67,7 @@
 			
 {% if questionnaire %}
 			<!-- Start search-course Area -->
-			<section class="search-course-area relative">
+			<section class="search-course-area relative" style="background: url('../media/back/sorovnoma.jpg');">
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row justify-content-between align-items-center">
@@ -83,7 +83,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 search-course-right section-gap">
 							<form class="form-wrap sorovnoma" method="POST"> {% csrf_token %}
-								<h4 class="text-white pb-20 text-center mb-30">{{questionnaire.title}}</h4>		
+								<h4 class="text-white pb-20 text-center mb-30" style="text-align: left !important;">{{questionnaire.title}}</h4>		
 								
 								<label><input type="radio" class="primary-radio" name="q" value="{{questionnaire.ans1}}" />{{questionnaire.ans1}}</label>
 								<label><input type="radio" class="primary-radio" name="q" value="{{questionnaire.ans2}}" />{{questionnaire.ans2}}</label>

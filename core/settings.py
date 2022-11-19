@@ -207,7 +207,7 @@ CKEDITOR_CONFIGS = {
 from typing import Any, Dict
 JAZZMIN_SETTINGS: Dict[str, Any] = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Library Admin",
+    "site_title": "Texnologik ta'lim",
     # Title on the brand, and login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_header": "Texnologik ta'lim admin panel",
     # Logo to use for your site, must be present in static files, used for brand on top left
@@ -232,14 +232,14 @@ JAZZMIN_SETTINGS: Dict[str, Any] = {
     # Links to put along the top menu
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
-        # {"name": "Asosiy", "url": "admin:index", "permissions": ["auth.view_user"]},
-        # {"name": "Vakansiyalar", "url": "/admin/vakansiya/vacancy/",},
-        # {"name": "Rezyumelar", "url": "/admin/resume/resume/",},
-        # {"name": "Tadbirlar", "url": "/admin/home/events/",},
-        # {"name": "Bosh sahifa", "url": "/",},
+        {"name": "Asosiy", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Kitoblar", "url": "/admin/home/books/",},
+        {"name": "So'rovnoma", "url": "/admin/home/questionnaire/",},
+        {"name": "Yangiliklar", "url": "/admin/news/event/",},
+        {"name": "Bosh sahifa", "url": "/",},
         # external url that opens in a new window (Permissions can be added)
         # model admin to link to (Permissions checked against model)
-        # {"model": "auth.User"},
+        {"model": "auth.User"},
         # App with dropdown menu to all its models pages (Permissions checked against models)
     ],
     #############

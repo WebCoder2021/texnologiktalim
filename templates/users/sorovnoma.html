@@ -1,0 +1,72 @@
+{% extends 'users/user_base.html' %}{% load i18n %}{% load static %}{% load custom_tags %}
+{% block head %}
+<title>So'rovnomalar</title>
+
+
+{% endblock %}
+{% block content %}
+<div class="card-body">
+    <h1>So'rovnomalar</h1>
+    <div class="infos">
+        {% for s in sorovnoma %}
+        <div class="info">
+
+            <div class="title">
+               <h2>{{ forloop.counter }}. {{s.title}}</h2> 
+            </div>
+            <h3>Jami ovoz berganlar: {{s.nums}} ta | Holat: {% if s.publish %} <span style="color: rgb(10, 207, 3);">Faol </span>{% else %}<span style="color: red;">Faol emas </span>{% endif %}</h3> <br>
+            <div class="results">
+                <div class="result">
+                    <p>{{s.ans1}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res1|progress:s.nums}}%"></span>{{s.res1|progress:s.nums}}% <p>{{s.res1}}</p>
+                    </div>
+                </div>
+                <div class="result">
+                    <p>{{s.ans2}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res3|progress:s.nums}}%"></span>{{s.res3|progress:s.nums}}% <p>{{s.res2}}</p>
+                    </div>
+                </div>
+                {% if s.ans3 %}
+                <div class="result">
+                    <p>{{s.ans3}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res3|progress:s.nums}}%"></span>{{s.res3|progress:s.nums}}% <p>{{s.res3}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if s.ans4 %}
+                <div class="result">
+                    <p>{{s.ans4}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res4|progress:s.nums}}%"></span>{{s.res4|progress:s.nums}}% <p>{{s.res4}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if s.ans5 %}
+                <div class="result">
+                    <p>{{s.ans5}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res15|progress:s.nums}}%"></span>{{s.res6|progress:s.nums}}% <p>{{s.res5}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if s.ans6 %}
+                <div class="result">
+                    <p>{{s.ans6}}</p>
+                    <div class="res_progress">
+                        <p style="display: flex;"><span style=" margin-right: 10px; background: blue;display: block; height: 20px; width: {{s.res6|progress:s.nums}}%"></span>{{s.res6|progress:s.nums}}%  </p>
+                        <p>{{s.res6}}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+
+{% endblock %}

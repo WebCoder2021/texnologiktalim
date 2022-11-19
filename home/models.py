@@ -67,6 +67,8 @@ class Questionnaire(models.Model):
         verbose_name_plural = "So'rovnomalar"
     def __str__(self) -> str:
         return self.title
+    def nums(self):
+        return self.res1+self.res2+self.res3+self.res4+self.res5+self.res6
 
 class IncomingMessages(models.Model):
     fullname = models.CharField(max_length=100)

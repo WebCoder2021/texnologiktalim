@@ -43,7 +43,9 @@ body {
     line-height: 1.625em;
     position: relative
 }
-
+img{
+    border-radius:7px;
+}
 ol, ul {
     margin: 0;
     padding: 0;
@@ -2417,6 +2419,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .banner-area {
     background: url(../header.jpg) right;
+    background-attachment: fixed;
     background-size: cover
 }
 

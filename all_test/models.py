@@ -17,6 +17,9 @@ class TestAnswer(models.Model):
 class TestQuestion(models.Model):
     content = RichTextField(verbose_name="Savol matni")
     answers = models.ManyToManyField(TestAnswer,verbose_name='Variantlar')
+    def is_true(self):
+        return self.answers.filter(is_true=True).all().first()
+
     class Meta:
         verbose_name = "Test"
         verbose_name_plural = "Testlar"

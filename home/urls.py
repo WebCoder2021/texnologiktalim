@@ -8,5 +8,6 @@ urlpatterns = [
     path('library', library, name='library'),
     path('resurs', resurs, name='resurs'),
     path('video_lesson', video_lesson, name='video_lesson'),
+    path('sorovnoma', sorovnoma, name='sorovnoma'),
     
 ]

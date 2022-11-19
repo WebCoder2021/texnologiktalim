@@ -49,8 +49,9 @@
 .sidebar li {
   position: relative;
   margin: 8px 0;
-  color: #fff;
   list-style: none;
+  color: #111;
+  font-weight: 600;
 }
 .sidebar li .tooltip {
   position: absolute;

@@ -10,9 +10,7 @@
     box-shadow: 1px 1px 3px #ccc;
     background: #fff;
     }
-    a{
-        color: #00f;
-    }
+    
 </style>
 {% endblock %}
 {% block content %}
@@ -22,7 +20,7 @@
     <br>
     {% for r in old_results %}
     <div class="result">
-        <p style="font-size: 20px;"> <span style="font-weight: 600;"><i class="fa-solid fa-calendar-days"></i> Sana va vaqt: <a href="{% url 'user_test_info' r.id %}">{{r.date|date:"d-m-Y H:i"}}</a> </span> </p><br>
+        <p style="font-size: 20px;"> <span style="font-weight: 600;"><i class="fa-solid fa-calendar-days"></i> Sana va vaqt: <a href="{% url 'user_test_info' r.id %}" style="color: #00f;">{{r.date|date:"d-m-Y H:i"}}</a> </span> </p><br>
     <p style="margin-bottom:5px"><span style="font-weight: 600;">Umumiy savollar:</span> {{r.tests.count}}</p>
     <p><span style="font-weight: 600;">To'g'ri javoblar: </span> {{r.is_trues}}</p>
     <hr style="margin: 10px;">

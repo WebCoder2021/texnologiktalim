@@ -63,17 +63,14 @@ def contact(request):
 
 def library(request):
     context = {}
-    context['modules'] = Module.objects.all().order_by('order')
     context['books'] = Books.objects.all()
     return render(request,'library.html',context)
 def resurs(request):
     context = {}
-    context['modules'] = Module.objects.all().order_by('order')
     context['resurs'] = InternetResources.objects.all()
     return render(request,'resurs.html',context)
 def video_lesson(request):
     context = {}
-    context['modules'] = Module.objects.all().order_by('order')
     context['videos_category'] = VideoCategory.objects.all()
     return render(request,'video_lesson.html',context)
 
